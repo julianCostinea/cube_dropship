@@ -20,17 +20,19 @@ export default function Footer() {
           <br />
           We provide a secure and easy-to-use platform for buying and selling digital goods.
         </p>
-        <h2 className={styles.alignLeft}>Follow Us</h2>
-        <div className={styles.socialMediaIcons}>
-          <a href="https://www.facebook.com">
-            <FacebookIcon />
-          </a>
-          <a href="https://www.instagram.com">
-            <InstagramIcon />
-          </a>
-          <a href="https://www.twitter.com">
-            <TwitterIcon />
-          </a>
+        <div className={styles.socialMedia}>
+          <h2>Follow Us</h2>
+          <div className={styles.socialMediaIcons}>
+            <a href="https://www.facebook.com">
+              <FacebookIcon />
+            </a>
+            <a href="https://www.instagram.com">
+              <InstagramIcon />
+            </a>
+            <a href="https://www.twitter.com">
+              <TwitterIcon />
+            </a>
+          </div>
         </div>
       </div>
       <div className={styles.footerItem}>

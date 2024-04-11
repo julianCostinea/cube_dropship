@@ -1,51 +1,50 @@
 .footerContainer {
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
   align-items: flex-start;
   background-color: #fdfdfd;
   border-top: 1px solid #f3f3f3;
   padding: 1rem 5rem;
   gap: 2rem;
-  .footerItem {
-    width: 30%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    .alignLeft {
-      align-self: flex-start;
-    }
-    h2 {
-      margin: 0.5rem 0;
-      color: #1976d2;
-    }
-    div {
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        li {
-          margin-bottom: 0.5rem;
-          a {
-            text-decoration: none;
-            color: #333;
-            font-size: 0.9rem;
-            &:hover {
-              color: #1976d2;
-            }
+}
+.footerItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  h2 {
+    margin: 0.5rem 0;
+    color: #1976d2;
+  }
+  div {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        margin-bottom: 0.5rem;
+        a {
+          text-decoration: none;
+          color: #333;
+          font-size: 0.9rem;
+          &:hover {
+            color: #1976d2;
           }
         }
       }
-      p {
-        font-size: 0.9rem;
-      }
+    }
+    p {
+      font-size: 0.9rem;
     }
   }
 }
 
 .logoContainer {
-  width: 5rem;
-  height: 5rem;
-  align-self: flex-start;
+  width: 7rem;
+  height: 7rem;
+  align-self: center;
   svg {
     width: 100%;
     height: 100%;
@@ -53,15 +52,47 @@
   }
 }
 
-.socialMediaIcons {
+.socialMedia {
   display: flex;
   gap: 0.5rem;
-  align-self: flex-start;
-  a {
-    svg {
+  align-self: center;
+  flex-direction: column;
+  h2 {
+    margin-bottom: 0;
+  }
+  .socialMediaIcons {
+    display: flex;
+    justify-content: center;
+    a {
       width: 2rem;
       height: 2rem;
-      color: #1976d2;
+      svg {
+        height: 100%;
+        width: 100%;
+        color: #1976d2;
+      }
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .footerContainer {
+    flex-direction: row;
+    padding: 1rem 2rem;
+    .footerItem {
+      width: 30%;
+      text-align: left;
+    }
+  }
+  .logoContainer {
+    width: 5rem;
+    height: 5rem;
+    align-self: flex-start;
+  }
+  .socialMedia {
+    align-self: flex-start;
+    .socialMediaIcons{
+      align-self: flex-start;
     }
   }
 }
