@@ -15,6 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import ViewInArIcon from "@mui/icons-material/ViewInAr";
 
 import styles from "./navbar.module.scss";
 
@@ -71,6 +72,7 @@ export default function DrawerAppBar(props: Props) {
           >
             <MenuIcon />
           </IconButton>
+          <ViewInArIcon sx={{ display: { xs: "none", sm:"inline-block" }, width: "3rem", height: "3rem" }}/>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
             CUBE
           </Typography>
