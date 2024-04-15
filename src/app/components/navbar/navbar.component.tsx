@@ -16,6 +16,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import ViewInArIcon from "@mui/icons-material/ViewInAr";
+import { ShoppingCart } from "@mui/icons-material";
 
 import styles from "./navbar.module.scss";
 
@@ -72,13 +73,16 @@ export default function DrawerAppBar(props: Props) {
           >
             <MenuIcon />
           </IconButton>
-          <ViewInArIcon sx={{ display: { xs: "none", sm:"inline-block" }, width: "3rem", height: "3rem" }}/>
+          <ViewInArIcon sx={{ display: { xs: "none", sm: "inline-block" }, width: "3rem", height: "3rem" }} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
             CUBE
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            <Button key={"cart"} sx={{ color: "#fff" }} href="/">
+              <ShoppingCart />
+            </Button>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }} className={styles.desktopMenuItem}>
+              <Button key={item} sx={{ color: "#fff" }} className={styles.desktopMenuItem} href="/">
                 {item}
               </Button>
             ))}
