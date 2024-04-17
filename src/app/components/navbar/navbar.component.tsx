@@ -19,6 +19,7 @@ import ViewInArIcon from "@mui/icons-material/ViewInAr";
 import { ShoppingCart } from "@mui/icons-material";
 
 import styles from "./navbar.module.scss";
+import { useCartStore } from "@/app/store/store";
 
 interface Props {
   /**
@@ -38,6 +39,8 @@ export default function DrawerAppBar(props: Props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
+
+  const { cartItems } = useCartStore();
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
@@ -78,8 +81,9 @@ export default function DrawerAppBar(props: Props) {
             CUBE
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <Button key={"cart"} sx={{ color: "#fff" }} href="/">
+            <Button key={"cart"} sx={{ color: "#fff" }} href="/" className={styles.cartButton}>
               <ShoppingCart />
+              {cartItems.length > 0 ? <span className={styles.cartCount}>{cartItems.length}</span> : null}
             </Button>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: "#fff" }} className={styles.desktopMenuItem} href="/">

@@ -19,3 +19,19 @@
     opacity: 1;
   }
 }
+
+.cartButton {
+  position: relative;
+  .cartCount {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    background-color: #fff;
+    color: #1976d2;
+    border-radius: 50%;
+    padding: 0px 6px;
+    font-size: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(97, 108, 172, 0.75);
+    font-weight: bold;
+  }
+}

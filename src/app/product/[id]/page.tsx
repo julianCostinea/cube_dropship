@@ -6,15 +6,12 @@ import styles from "./page.module.scss";
 import Image from "next/image";
 import { Button } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
-import { cartSignal } from "@/app/store/signals";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product: Product | undefined = products.find((product) => product.id === params.id);
 
   const addToCart = (product: Product) => () => {
-    cartSignal.value = [...cartSignal.value, product];
-
-    console.log("cartSignal.value", cartSignal.value);
+    // cartSignal.value = [...cartSignal.value, product];
   };
 
   return (
