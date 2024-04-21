@@ -20,6 +20,7 @@ import { ShoppingCart } from "@mui/icons-material";
 
 import styles from "./navbar.module.scss";
 import { useCartStore } from "@/app/store/store";
+import Link from "next/link";
 
 interface Props {
   /**
@@ -40,22 +41,28 @@ export default function DrawerAppBar(props: Props) {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const { cartItems } = useCartStore();
+  const { cartItems, clearCart } = useCartStore();
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2, color: "#1976D2", fontWeight: "bold" }}>
-        CUBE
-      </Typography>
+      <Link href="/" passHref>
+        <ViewInArIcon sx={{ width: "3rem", height: "3rem", color: "#1976d2" }} />
+      </Link>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
+            <Link href="/" passHref>
+              <ListItemButton sx={{ textAlign: "center" }}>
+                <ListItemText primary={item} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
+        <ListItem>
+          <ShoppingCart />
+          {cartItems.length > 0 ? <span className={styles.cartCount}>{cartItems.length}</span> : null}
+        </ListItem>
       </List>
     </Box>
   );
@@ -66,7 +73,7 @@ export default function DrawerAppBar(props: Props) {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar component="nav">
-        <Toolbar>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -76,12 +83,20 @@ export default function DrawerAppBar(props: Props) {
           >
             <MenuIcon />
           </IconButton>
-          <ViewInArIcon sx={{ display: { xs: "none", sm: "inline-block" }, width: "3rem", height: "3rem" }} />
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-            CUBE
-          </Typography>
+          <Link href="/" passHref>
+            <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+              <ViewInArIcon sx={{ display: { xs: "none", sm: "inline-block" }, width: "3rem", height: "3rem" }} />
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
+                CUBE
+              </Typography>
+            </Box>
+          </Link>
+
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <Button key={"cart"} sx={{ color: "#fff" }} href="/" className={styles.cartButton}>
+            {/* <Button sx={{ color: "#fff" }} onClick={() => clearCart()}>
+              Clear cart
+            </Button> */}
+            <Button key={"cart"} sx={{ color: "#fff" }} href="/cart" className={styles.cartButton}>
               <ShoppingCart />
               {cartItems.length > 0 ? <span className={styles.cartCount}>{cartItems.length}</span> : null}
             </Button>

@@ -35,3 +35,14 @@
     font-weight: bold;
   }
 }
+
+//media max 480px
+@media (max-width: 480px) {
+  .cartCount {
+    border-radius: 50%;
+    border: 1px solid #000;
+    padding: 0px 4px;
+    font-size: 8px;
+    color: #1976d2;
+  }
+}
