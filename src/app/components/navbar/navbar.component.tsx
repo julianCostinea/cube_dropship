@@ -60,8 +60,10 @@ export default function DrawerAppBar(props: Props) {
           </ListItem>
         ))}
         <ListItem>
-          <ShoppingCart />
-          {cartItems.length > 0 ? <span className={styles.cartCount}>{cartItems.length}</span> : null}
+          <Link href="/cart" passHref>
+            <ShoppingCart />
+            {cartItems.length > 0 ? <span className={styles.cartCount}>{cartItems.length}</span> : null}
+          </Link>
         </ListItem>
       </List>
     </Box>

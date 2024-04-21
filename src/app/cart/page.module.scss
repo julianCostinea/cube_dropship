@@ -40,6 +40,11 @@
   }
 }
 
+.cartTotal {
+  border-top: 1px solid grey;
+  margin-top: 1rem;
+}
+
 //media 480px
 @media (min-width: 480px) {
   .cartItemImage {
